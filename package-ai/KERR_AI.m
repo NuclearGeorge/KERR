@@ -4,7 +4,7 @@ Off[CreateDirectory::eexist];
 info:={
 Print[StyleForm["=====================================================","Section",FontSize->14,Black]];
 Print[StyleForm["PACKAGE:","Section",FontSize->14],StyleForm[" QUANTUM CHAOS CLASSIFIER","Section",FontSize->14,Black] ];
-Print[StyleForm["BY: Jorge Chávez-Carlos, 2023","Section",FontSize->12,Black]];
+Print[StyleForm["BY: Jorge Chavez-Carlos, 2023","Section",FontSize->12,Black]];
 Print[StyleForm["=====================================================","Section",FontSize->14,Black]];
 Print[StyleForm["Kerr-Husimi analyzer package:","Section",FontSize->12,Black]];
 Print[StyleForm["This package can classify images and data from Husimi functions or Floquet states in the Kerr-driven system.","Section",FontSize->12,Black]]
@@ -27,7 +27,6 @@ Print[StyleForm["export:","Section",FontSize->12,Black,Bold]," This function onl
 Print["Ready to work!"];
 Print[StyleForm["=====================================================","Section",FontSize->14,Black]]}[[1]];
 c=Uncompress[Import["https://raw.githubusercontent.com/NuclearGeorge/KERR/main/package-ai/KERR_AI.txt"]];
-(*c=Import["KERR_AI.wmlf"];*)
 SetDirectory[NotebookDirectory[]];
 files=FileNames[];
 If[Total[Table[If[files[[i]]=="TEST",1,0],{i,1,Length[files]}]]==0,CreateDirectory["TEST"]];
@@ -64,7 +63,6 @@ Ny=Nx;
 dx=(xff-xii)/(Nx-1);
 dy=(yff-yii)/(Ny-1);
 grid=Flatten[Table[{i,j},{i,xii,xff,dx},{j,yii,yff,dy}],1];
-(*|\[Alpha]0\[RightAngleBracket] Estado coherente *)
 logi[i_]:=Sum[Log[j],{j,1,i}];
 l=dim;
 lc=l;
@@ -74,7 +72,6 @@ If[xx<xxMax,
 HUs={};
 SetSharedVariable[HUs];
 ParallelDo[ 
-(*|\[Alpha]\[RightAngleBracket] Estado coherente *)
 qi=grid[[ii,1]];
 pi=grid[[ii,2]];
 qp=qi+pi I;
@@ -86,8 +83,6 @@ EVV=dat;
 cks0=Chop[EC . EVV];
 HuF= Abs[cks0]^2;
 Norma =Total[HuF];
-(*Hus=Chop[Abs[ckstp.Conjugate[cksp]+ckstn.Conjugate[cksn]]^2];
-Hus=Chop[Abs[ckst.Conjugate[cks]]^2];*)
 AppendTo[HUs,{qi,pi,HuF}];,{ii,1,Length[grid]}];
 HUs=Sort[HUs];
 dat=HUs[[1;;-1,3]];
@@ -133,7 +128,6 @@ Ny=Nx;
 dx=(xff-xii)/(Nx-1);
 dy=(yff-yii)/(Ny-1);
 grid=Flatten[Table[{i,j},{i,xii,xff,dx},{j,yii,yff,dy}],1];
-(*|\[Alpha]0\[RightAngleBracket] Estado coherente *)
 logi[i_]:=Sum[Log[j],{j,1,i}];
 l=dim;
 lc=l;
@@ -143,7 +137,6 @@ If[xx<xxMax,
 HUs={};
 SetSharedVariable[HUs];
 ParallelDo[ 
-(*|\[Alpha]\[RightAngleBracket] Estado coherente *)
 qi=grid[[ii,1]];
 pi=grid[[ii,2]];
 qp=qi+pi I;
@@ -155,8 +148,6 @@ EVV=dat;
 cks0=Chop[EC . EVV];
 HuF= Abs[cks0]^2;
 Norma =Total[HuF];
-(*Hus=Chop[Abs[ckstp.Conjugate[cksp]+ckstn.Conjugate[cksn]]^2];
-Hus=Chop[Abs[ckst.Conjugate[cks]]^2];*)
 AppendTo[HUs,{qi,pi,HuF}];,{ii,1,Length[grid]}];
 HUs=Sort[HUs];
 dat=HUs[[1;;-1,3]];
