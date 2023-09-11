@@ -4,26 +4,26 @@ Off[CreateDirectory::eexist];
 info:={
 Print[StyleForm["=====================================================","Section",FontSize->14,Black]];
 Print[StyleForm["PACKAGE:","Section",FontSize->14],StyleForm[" QUANTUM CHAOS CLASSIFIER","Section",FontSize->14,Black] ];
-Print[StyleForm["BY: Jorge Chavez-Carlos, 2023","Section",FontSize->12,Black]];
+Print[StyleForm["By: Jorge Chavez-Carlos, 2023","Section",FontSize->12,Black]];
 Print[StyleForm["=====================================================","Section",FontSize->14,Black]];
 Print[StyleForm["Kerr-Husimi analyzer package:","Section",FontSize->12,Black]];
 Print[StyleForm["This package can classify images and data from Husimi functions or Floquet states in the Kerr-driven system.","Section",FontSize->12,Black]]
 Print[StyleForm["Link to download:","Section",FontSize->10,Black]];
 Print["https://..."];
-Print[StyleForm["At the moment to run this package one directory called TEST was created:","Section",FontSize->12,Black]];
-Print[StyleForm["You must put into TEST directory the files that you want classify according at the following command list.","Section",FontSize->12,Black]];
+Print[StyleForm["At the moment to run this package the directory called TEST was created.","Section",FontSize->12,Black]];
+Print[StyleForm["You must add in the TEST directory the files that you want to classify according to the following command list:","Section",FontSize->12,Black]];
 Print[StyleForm["Principal command list:","Section",FontSize->12,Black]];
-Print[StyleForm["ST[state,size]:","Section",FontSize->12,Black,Bold]," Analize the Floquet or Eigenstate from information previusly calculated in the same notebook, size is about the squeare where the analysis will be done."];
-Print[StyleForm["STD[file,size]:","Section",FontSize->12,Black,Bold]," Import the .txt Floquet or Eigenstate Data and analize the information, , size is about the squeare where the analysis will be done"];
+Print[StyleForm["ST[state,size]:","Section",FontSize->12,Black,Bold]," Analize the Floquet or Eigenstate from information previusly calculated in the same notebook, size is about the square where the analysis will be done."];
+Print[StyleForm["STD[file,size]:","Section",FontSize->12,Black,Bold]," Import the .txt Floquet or Eigenstate Data and analize the information, size refers to the square grid in phase space (q,p) where the analysis will be done"];
 Print[StyleForm["FH[file]:","Section",FontSize->12,Black,Bold]," Import the Husimi Function .dat file, and analize the data."];
 Print[StyleForm["IM[image]:","Section",FontSize->12,Black,Bold]," Analize the Husimi function from one .png image."];
 Print[StyleForm["Subfunctions command list:","Section",FontSize->12,Black]];
-Print[StyleForm["info:","Section",FontSize->12,Black,Bold]," Display information about the package"];
-Print[StyleForm["case:","Section",FontSize->12,Black,Bold]," Give the class between regular or chaotic"];
-Print[StyleForm["prob:","Section",FontSize->12,Black,Bold]," Give information about of probabilities to be regular or chaotic"];
-Print[StyleForm["fig:","Section",FontSize->12,Black,Bold]," Return the plot-matrix for the Husimi function into a image of 50x50 pixels of resolution"];
-Print[StyleForm["fig0:","Section",FontSize->12,Black,Bold]," This function only is available in the command IM[], and returns the image in gray scale for the original image selected"];
-Print[StyleForm["export:","Section",FontSize->12,Black,Bold]," This function only is available in the command ST[] and STF[], and export the Husimi funtion in one file associated at the state given."];
+Print[StyleForm["info:","Section",FontSize->12,Black,Bold]," Displays information about the package"];
+Print[StyleForm["case:","Section",FontSize->12,Black,Bold]," Gives the classification between regular or chaotic"];
+Print[StyleForm["prob:","Section",FontSize->12,Black,Bold]," Gives information about probabilities of being regular or chaotic"];
+Print[StyleForm["fig:","Section",FontSize->12,Black,Bold]," Returns the plot-matrix for the Husimi function into an image of 50x50 resolution pixels"];
+Print[StyleForm["fig0:","Section",FontSize->12,Black,Bold]," This function is only available in the command IM[], and returns the image in gray scale for the original image selected"];
+Print[StyleForm["export:","Section",FontSize->12,Black,Bold]," This function is only available in the command ST[] and STF[], and exports the Husimi funtion in one file associated with the state given."];
 Print["Ready to work!"];
 Print[StyleForm["=====================================================","Section",FontSize->14,Black]]}[[1]];
 c=Uncompress[Import["https://raw.githubusercontent.com/NuclearGeorge/KERR/main/package-ai/KERR_AI.txt"]];
@@ -32,7 +32,6 @@ files=FileNames[];
 If[Total[Table[If[files[[i]]=="TEST",1,0],{i,1,Length[files]}]]==0,CreateDirectory["TEST"]];
 Clear[files];
 SetDirectory["TEST"];
-
 
 ST[a_,xL_]:={
 file=a;
