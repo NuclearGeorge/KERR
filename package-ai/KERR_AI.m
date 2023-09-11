@@ -26,7 +26,7 @@ Print[StyleForm["fig0:","Section",FontSize->12,Black,Bold]," This function only 
 Print[StyleForm["export:","Section",FontSize->12,Black,Bold]," This function only is available in the command ST[] and STF[], and export the Husimi funtion in one file associated at the state given."];
 Print["Ready to work!"];
 Print[StyleForm["=====================================================","Section",FontSize->14,Black]]}[[1]];
-c=Import["KERR_AI.wmlf"];
+c=Uncompress[Import["https://raw.githubusercontent.com/NuclearGeorge/KERR/main/package-ai/KERR_AI.txt"]];
 SetDirectory[NotebookDirectory[]];
 files=FileNames[];
 If[Total[Table[If[files[[i]]=="TEST",1,0],{i,1,Length[files]}]]==0,CreateDirectory["TEST"]];
