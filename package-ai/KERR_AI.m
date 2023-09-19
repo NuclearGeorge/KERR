@@ -73,13 +73,9 @@ SetSharedVariable[HUs];
 ParallelDo[ 
 qi=grid[[ii,1]];
 pi=grid[[ii,2]];
-qp=qi+pi I;
-Ec=ECs[(qp)/Sqrt[2]][[1;;dim]];
-Do[If[
-Re[Ec[[i]]]<=-37,Ec[[i]]=-37],{i,1,Length[Ec]}];
-EC = If[q0 == 0. && 
-     p0 == 0., {Flatten[{1, Table[0, {i, 2, l}]}]}, {Ec = 
-      ECs[(q0 + I p0)/Sqrt[2]][[1 ;; l]];
+EC = If[qi == 0. && 
+     pi == 0., {Flatten[{1, Table[0, {i, 2, l}]}]}, {Ec = 
+      ECs[(qi + I pi)/Sqrt[2]][[1 ;; l]];
      (*Trucation of numerical noise*)
      Do[If[Re[Ec[[i]]] <= -37, Ec[[i]] = -37], {i, 1, Length[Ec]}];
      Chop[Exp[Ec]]}][[1]];
@@ -143,13 +139,9 @@ SetSharedVariable[HUs];
 ParallelDo[ 
 qi=grid[[ii,1]];
 pi=grid[[ii,2]];
-qp=qi+pi I;
-Ec=ECs[(qp)/Sqrt[2]][[1;;dim]];
-Do[If[
-Re[Ec[[i]]]<=-37,Ec[[i]]=-37],{i,1,Length[Ec]}];
-EC = If[q0 == 0. && 
-     p0 == 0., {Flatten[{1, Table[0, {i, 2, l}]}]}, {Ec = 
-      ECs[(q0 + I p0)/Sqrt[2]][[1 ;; l]];
+EC = If[qi == 0. && 
+     pi == 0., {Flatten[{1, Table[0, {i, 2, l}]}]}, {Ec = 
+      ECs[(qi + I pi)/Sqrt[2]][[1 ;; l]];
      (*Trucation of numerical noise*)
      Do[If[Re[Ec[[i]]] <= -37, Ec[[i]] = -37], {i, 1, Length[Ec]}];
      Chop[Exp[Ec]]}][[1]];
