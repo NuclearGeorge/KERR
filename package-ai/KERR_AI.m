@@ -77,7 +77,12 @@ qp=qi+pi I;
 Ec=ECs[(qp)/Sqrt[2]][[1;;dim]];
 Do[If[
 Re[Ec[[i]]]<=-37,Ec[[i]]=-37],{i,1,Length[Ec]}];
-EC=Chop[Exp[Ec]];
+EC = If[q0 == 0. && 
+     p0 == 0., {Flatten[{1, Table[0, {i, 2, l}]}]}, {Ec = 
+      ECs[(q0 + I p0)/Sqrt[2]][[1 ;; l]];
+     (*Trucation of numerical noise*)
+     Do[If[Re[Ec[[i]]] <= -37, Ec[[i]] = -37], {i, 1, Length[Ec]}];
+     Chop[Exp[Ec]]}][[1]];
 EVV=dat;
 cks0=Chop[EC . EVV];
 HuF= Abs[cks0]^2;
@@ -142,7 +147,12 @@ qp=qi+pi I;
 Ec=ECs[(qp)/Sqrt[2]][[1;;dim]];
 Do[If[
 Re[Ec[[i]]]<=-37,Ec[[i]]=-37],{i,1,Length[Ec]}];
-EC=Chop[Exp[Ec]];
+EC = If[q0 == 0. && 
+     p0 == 0., {Flatten[{1, Table[0, {i, 2, l}]}]}, {Ec = 
+      ECs[(q0 + I p0)/Sqrt[2]][[1 ;; l]];
+     (*Trucation of numerical noise*)
+     Do[If[Re[Ec[[i]]] <= -37, Ec[[i]] = -37], {i, 1, Length[Ec]}];
+     Chop[Exp[Ec]]}][[1]];
 EVV=dat;
 cks0=Chop[EC . EVV];
 HuF= Abs[cks0]^2;
